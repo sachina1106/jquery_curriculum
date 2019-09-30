@@ -98,32 +98,52 @@
     // .offset().top 要素の位置を取得します。
     // .fadeIn() 要素をフェードインさせる。
     // .fadeOut() 要素をフェードアウトさせる。
+    $(function () {
+      var html = $('html');
+      //メニューボタンイベント start
+      // 1.メニュークリックイベントでタイトルのdata取得
+      $('.menu__btn').on('click', function () {
+        var clickedMenu = $(this).data('scroll-place-type');
+        console.log(clickedMenu);
+        //titleクラスが付いてる要素を全部回す
+        //一個一個要素を比較する
+        $('.title').each(function () {
+          // data属性を取得する
+          var _data = $(this).data('scroll-place-type');
+          // コンソールに1つずつ出力
+          console.log('data' + ':' + _data);
+          // クリックしたメニューのデータ属性と回しているタイトルクラスの要素を判定
+          if (clickedMenu === _data) {
+            // タイトルの位置取得
+            var _offset = $(this).offset().top;
+            console.log('offset' + ':' + _offset);
+            //タイトルのスクロール位置までアニメーション
+            html.animate({
+              scrollTop: _offset
+            });
+          }
+        });
 
-    var html = $('html');
-    // 1.メニュークリックイベントでタイトルのdata取得
-    $('.menu__btn').on('click', function () {
-      var clickedMenu = $(this).data('scroll-place-type');
-      console.log(clickedMenu);
-      //titleクラスが付いてる要素を全部回す
-      //一個一個要素を比較する
-      $('.title').each(function () {
-        // data属性を取得する
-        var _data = $(this).data('scroll-place-type');
-        // コンソールに1つずつ出力
-        console.log('data' + ':' + _data);
-        // クリックしたメニューのデータ属性と回しているタイトルクラスの要素を判定
-        if (clickedMenu === _data) {
-          // タイトルの位置取得
-          var _offset = $(this).offset().top;
-          console.log('offset' + ':' + _offset);
-          //タイトルのスクロール位置までアニメーション
-          html.animate({
-            scrollTop: _offset
-          });
+      })
+      // メニューボタンイベント end
+      // scrollイベント start
+      $(window).scroll(function () {
+        //スクロールしている現在の位置を取得
+        var _position = $(window).scrollTop();
+        console.log(_position);
+        if (_position >= 100) {
+          $('.scrollTopBtn').fadeIn();
+        } else {
+          $('.scrollTopBtn').fadeOut();
         }
-      });
-
-    })
+      })
+      //scrollイベント end
+      $('.scrollTopBtn').on('click', function () {
+        html.animate({
+          scrollTop: 0
+        });
+      })
+    });
   </script>
 </body>
 
