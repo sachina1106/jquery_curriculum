@@ -29,18 +29,16 @@
     // .replace(/\s+/g,'').length 改行を含まない文字数を取得します。
     // .val() input要素のvalueを取得します。
     $(function () {
-      $('.input').keyup(function () {
-        var count = $(this).val().length;
+      $('.input').on('keyup', function () {
+        var count = $(this).val().replace(/\s+/g, '').length;
         $('.rest-count').text(30 - count);
         if (count > 30) {
           $('.rest-count').addClass('red');
         } else {
           $('.rest-count').removeClass('red');
-
         }
       })
-
-    });
+    })
   </script>
 </body>
 
