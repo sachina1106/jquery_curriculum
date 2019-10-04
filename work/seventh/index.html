@@ -1,5 +1,22 @@
 <!doctype html>
 <html>
+<!-- // var slider = function () {
+// $('.slider-list').animate({
+// left: imgCurrent - slideWidth
+// })
+// }
+// $('.is-next').on('click', function () {
+// var imgCurrent = 0;
+// var slideWidth = $('.slider-list li').width();
+// var imgNum = $('.slider-list li').length;
+// var allWidth = slideWidth * imgNum;
+// $('.slider-list').css('width', allWidth);
+
+// imgCurrent++;
+// slider();
+
+
+// }) -->
 
 <head>
   <meta charset="UTF-8">
@@ -37,15 +54,53 @@
     // .width() 要素の幅を取得します。
     // .length 要素の個数を取得します。
 
+    // $(function () {
+    //   //imgのwidthを取得
+    //   var imgWidth = $('.slider-list li').width();
+    //   //imgの数を取得
+    //   var imgLength = $('.slider-list li').length;
+    //   console.log(imgWidth);
+    //   console.log(imgLength);
+    //   //横並びした画像の全体のwidthを取得
+    //   var allWidth = imgWidth * imgLength;
+    //   console.log(allWidth);
+    //   //現在の位置を表示
+    //   var slideCurrent = 0;
+
+    //   //スライダー関数
+    //   function slider() {
+    //     $('.slider-list').animate({
+    //       //現在地からwidth(600px)引くことで横にスライドする
+    //       left: slideCurrent - imgWidth
+    //     })
+    //   }
+
+
+    //   //nextボタンを押した時
+    //   $('.is-next').on('click', function () {
+    //     slideCurrent++;
+    //     slider();
+    //   })
+
+
+    //   //prevボタンを押した時
+    //   $('.is-prev').on('click', function () {
+
+    //   })
+    // })
+
+
     $(function () {
-      $('.slider-list li').each(function (i, val) {
-        console.log($(this).width());
+      $('.is-next').on('click', function () {
+
+        var index = [1];
+        var push = index.push();
+        console.log(push);
+
       })
-      $('.slider-ctrl-btn').on('click', function () {
-        var _data = $(this).data('ctrl');
-        console.log(_data);
-      })
-    });
+
+
+    })
   </script>
 </body>
 
