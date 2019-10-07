@@ -123,9 +123,13 @@
       // 第10問 id='q10'の子要素をクリックしたら、その要素のインデックスと等しいid='q11'の子要素にlargeというクラスを追加せよ。
       $('#q10 li').on('click', function () {
         var index = $(this).index();
-        console.log(index);
         $('#q11 li').eq(index).addClass('large');
       })
+
+
+
+
+
     });
   </script>
 </body>
